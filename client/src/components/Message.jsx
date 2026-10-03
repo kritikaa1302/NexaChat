@@ -1,8 +1,6 @@
 import { useState } from "react";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
-
-
 function Message({ message }) {
 
     const [copied, setCopied] = useState(false);
