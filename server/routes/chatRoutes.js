@@ -7,6 +7,7 @@ const authMiddleware = require("../middleware/authMiddleware");
 const {
   sendMessage,
   getChat,
+  clearChat,
 } = require("../controllers/chatController");
 
 router.get(
@@ -19,6 +20,12 @@ router.post(
   "/",
   authMiddleware,
   sendMessage
+);
+
+router.delete(
+  "/",
+  authMiddleware,
+  clearChat
 );
 
 module.exports = router;

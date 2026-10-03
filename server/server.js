@@ -17,7 +17,22 @@ connectDB();
 
 // Middlewares
 app.use(cors());
-app.use(express.json());
+app.use(express.json({ limit: "1mb" }));
+
+// Rate limiting (protects your Groq quota and login endpoint)
+const rateLimit = require("express-rate-limit");
+
+app.use("/api/chat", rateLimit({
+    windowMs: 60 * 1000,
+    max: 20,
+    message: { message: "Too many requests. Please wait a minute." }
+}));
+
+app.use("/api/auth", rateLimit({
+    windowMs: 15 * 60 * 1000,
+    max: 30,
+    message: { message: "Too many attempts. Try again later." }
+}));
 
 
 // Routes

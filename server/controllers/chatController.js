@@ -5,6 +5,14 @@ const sendMessage = async (req, res) => {
   try {
     const { message } = req.body;
 
+    if (!message || !message.trim()) {
+      return res.status(400).json({ message: "Message cannot be empty" });
+    }
+
+    if (message.length > 4000) {
+      return res.status(400).json({ message: "Message too long (max 4000 characters)" });
+    }
+
     let chat = await Chat.findOne({
       userId: req.user.id,
     });
@@ -21,7 +29,8 @@ const sendMessage = async (req, res) => {
       content: message,
     });
 
-    const aiMessages = chat.messages.map((msg) => ({
+    // Only send the last 20 messages to keep requests small and fast
+    const aiMessages = chat.messages.slice(-20).map((msg) => ({
       role: msg.role,
       content: msg.content,
     }));
@@ -71,7 +80,21 @@ const getChat = async (req, res) => {
   }
 };
 
+const clearChat = async (req, res) => {
+  try {
+    await Chat.findOneAndUpdate(
+      { userId: req.user.id },
+      { messages: [] }
+    );
+
+    res.json({ message: "Chat cleared" });
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+};
+
 module.exports = {
   sendMessage,
   getChat,
+  clearChat,
 };

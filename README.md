@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 AI Chatbot MERN
+=======
+# 🤖 NexaChat
+>>>>>>> e9acd28 (Add copy, clear chat, rate limiting, env config; update README)
 
 A full-stack AI chatbot built with the **MERN stack** and **Groq AI**. Users can register, log in securely, and chat with an AI assistant that replies with structured, markdown-formatted answers. Chat history is saved per user in MongoDB.
 
@@ -13,6 +17,9 @@ A full-stack AI chatbot built with the **MERN stack** and **Groq AI**. Users can
 - Markdown rendering (headings, lists, tables, code blocks) using `react-markdown` + `remark-gfm`
 - Persistent chat history stored in MongoDB
 - Dark, responsive chat UI
+- Copy button on AI replies, clear-chat and logout controls
+- Rate limiting on auth and chat routes
+- Configurable Groq model via `GROQ_MODEL`
 
 ---
 
@@ -76,8 +83,8 @@ AI-Chatbot-MERN
 ### 1. Clone the repository
 
 ```bash
-git clone https://github.com/YOUR_USERNAME/AI-Chatbot-MERN.git
-cd AI-Chatbot-MERN
+git clone https://github.com/kritikaa1302/NexaChat.git
+cd NexaChat
 ```
 
 ### 2. Set up the backend
@@ -94,6 +101,7 @@ PORT=5000
 MONGO_URI=your_mongodb_connection_string
 JWT_SECRET=any_long_random_string
 GROQ_API_KEY=your_groq_api_key
+GROQ_MODEL=openai/gpt-oss-20b   # optional
 ```
 
 Start the server:
@@ -126,6 +134,7 @@ The app runs at `http://localhost:5173`.
 | POST | `/api/auth/login` | No | Log in and receive a JWT |
 | GET | `/api/chat` | Yes | Fetch the user's chat history |
 | POST | `/api/chat` | Yes | Send a message and get an AI reply |
+| DELETE | `/api/chat` | Yes | Clear the conversation |
 
 Protected routes expect the header `Authorization: Bearer <token>`.
 
@@ -133,11 +142,7 @@ Protected routes expect the header `Authorization: Bearer <token>`.
 
 ## 🧠 AI Model Configuration
 
-The model is set in `server/utils/aiService.js`:
-
-```js
-model: "openai/gpt-oss-20b"
-```
+The model is read from the `GROQ_MODEL` environment variable (default `openai/gpt-oss-20b`) in `server/utils/aiService.js`.
 
 > **Note:** Groq retires models regularly. If you see a `model_not_found` error, check the current list at [console.groq.com/docs/models](https://console.groq.com/docs/models) or call `https://api.groq.com/openai/v1/models` with your key, then update the model name.
 
@@ -165,4 +170,18 @@ The system prompt instructs the assistant to answer with clear headings, bullet 
 
 ## 👤 Author
 
+<<<<<<< HEAD
 **Kritika**
+=======
+**Your Name**
+Computer Science Student | Full Stack & AI Developer
+
+- GitHub: [@kritikaa1302](https://github.com/kritikaa1302)
+
+---
+
+## 🙏 Credits
+
+Originally based on [AI-Chatbot-MERN](https://github.com/kashafsarfrazcs-dev/AI-Chatbot-MERN) by kashafsarfrazcs-dev, then extended with new features and fixes.
+
+>>>>>>> e9acd28 (Add copy, clear chat, rate limiting, env config; update README)

@@ -1,61 +1,49 @@
+import { useState } from "react";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 
 
-function Message({message}){
+function Message({ message }) {
 
+    const [copied, setCopied] = useState(false);
 
-return (
+    const isUser = message.role === "user";
 
-<div
+    const copyText = async () => {
+        try {
+            await navigator.clipboard.writeText(message.content);
+            setCopied(true);
+            setTimeout(() => setCopied(false), 1500);
+        } catch (error) {
+            console.log("COPY ERROR:", error);
+        }
+    };
 
-className={
-message.role==="user"
-?
-"user-message"
-:
-"ai-message"
-}
+    return (
 
->
+        <div className={isUser ? "user-message" : "ai-message"}>
 
+            <div className="message-top">
 
-<h4>
+                <h4>{isUser ? "You" : "AI Assistant"}</h4>
 
-{
-message.role==="user"
-?
-"You"
-:
-"AI Assistant"
-}
+                {!isUser && (
+                    <button className="copy-btn" onClick={copyText}>
+                        {copied ? "Copied!" : "Copy"}
+                    </button>
+                )}
 
-</h4>
+            </div>
 
+            <div className="message-content">
+                <ReactMarkdown remarkPlugins={[remarkGfm]}>
+                    {message.content}
+                </ReactMarkdown>
+            </div>
 
+        </div>
 
-
-<div className="message-content">
-
-
-<ReactMarkdown
-remarkPlugins={[remarkGfm]}
->
-
-{message.content}
-
-</ReactMarkdown>
-
-
-</div>
-
-
-
-</div>
-
-);
-
-
+    );
 }
 
 

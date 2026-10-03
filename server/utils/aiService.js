@@ -63,7 +63,7 @@ Follow these response rules:
             ],
 
 
-            model: "openai/gpt-oss-20b",
+            model: process.env.GROQ_MODEL || "openai/gpt-oss-20b",
 
 
             temperature:0.7

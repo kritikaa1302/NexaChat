@@ -1,9 +1,12 @@
 import { useState, useEffect, useRef } from "react";
 import API from "../services/api";
+import { useNavigate } from "react-router-dom";
 import Message from "./Message";
 
 
 function ChatBox() {
+
+    const navigate = useNavigate();
 
 
     const [input, setInput] = useState("");
@@ -72,6 +75,28 @@ function ChatBox() {
 
 
 
+
+
+    const clearChat = async()=>{
+
+        if(!window.confirm("Delete this entire conversation?"))
+            return;
+
+        try{
+            await API.delete("/chat");
+            setMessages([]);
+        }
+        catch(error){
+            console.log("CLEAR CHAT ERROR:", error.response?.data || error.message);
+        }
+
+    };
+
+
+    const logout = ()=>{
+        localStorage.removeItem("token");
+        navigate("/");
+    };
 
 
     const sendMessage = async()=>{
@@ -244,6 +269,15 @@ function ChatBox() {
                     Powered by Groq AI
                 </p>
 
+                <div className="header-actions">
+                    <button onClick={clearChat} disabled={!messages.length}>
+                        Clear chat
+                    </button>
+                    <button onClick={logout}>
+                        Logout
+                    </button>
+                </div>
+
 
             </div>
 
@@ -254,6 +288,13 @@ function ChatBox() {
             <div className="chat-window">
 
 
+
+            {
+                messages.length === 0 && !loading &&
+                <div className="empty-state">
+                    👋 Hi! Ask me anything to get started.
+                </div>
+            }
 
             {
                 messages.map(
@@ -321,7 +362,7 @@ function ChatBox() {
                 onKeyDown={
                     (e)=>{
 
-                    if(e.key==="Enter")
+                    if(e.key==="Enter" && !e.shiftKey)
                     sendMessage();
 
                     }
