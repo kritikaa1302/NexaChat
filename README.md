@@ -170,14 +170,9 @@ The system prompt instructs the assistant to answer with clear headings, bullet 
 
 ## 👤 Author
 
-**Your Name**
+**KRITIKA**
 Computer Science Student | Full Stack & AI Developer
 
 - GitHub: [@kritikaa1302](https://github.com/kritikaa1302)
 
 ---
-
-## 🙏 Credits
-
-Originally based on [AI-Chatbot-MERN](https://github.com/kashafsarfrazcs-dev/AI-Chatbot-MERN) by kashafsarfrazcs-dev, then extended with new features and fixes.
-
