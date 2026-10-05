@@ -8,6 +8,7 @@ const {
   sendMessage,
   getChat,
   clearChat,
+  generateImage,
 } = require("../controllers/chatController");
 
 router.get(
@@ -20,6 +21,12 @@ router.post(
   "/",
   authMiddleware,
   sendMessage
+);
+
+router.post(
+  "/image",
+  authMiddleware,
+  generateImage
 );
 
 router.delete(

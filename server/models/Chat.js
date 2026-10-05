@@ -12,6 +12,13 @@ const messageSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
+
+    // "text" = normal chat, "image" = generated image (content holds the image URL)
+    type: {
+      type: String,
+      enum: ["text", "image"],
+      default: "text",
+    },
   },
   {
     timestamps: true,
