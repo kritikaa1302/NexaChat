@@ -170,8 +170,6 @@ The system prompt instructs the assistant to answer with clear headings, bullet 
 ## 👤 Author
 
 **KRITIKA**
-Computer Science Student | Full Stack & AI Developer
-
-- GitHub: [@kritikaa1302](https://github.com/kritikaa1302)
+Computer Science Student
 
 ---
