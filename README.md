@@ -1,9 +1,8 @@
-# 🤖 NexaChat
+# NexaChat
 
 A full-stack AI chatbot built with the **MERN stack** and **Groq AI**. Users can register, log in securely, and chat with an AI assistant that replies with structured, markdown-formatted answers. Chat history is saved per user in MongoDB.
 
 ---
-
 ## ✨ Features
 
 - User registration and login with **JWT authentication**
