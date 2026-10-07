@@ -1,6 +1,5 @@
 const Chat = require("../models/Chat");
 const generateAIResponse = require("../utils/aiService");
-
 const sendMessage = async (req, res) => {
   try {
     const { message } = req.body;
@@ -8,7 +7,6 @@ const sendMessage = async (req, res) => {
     if (!message || !message.trim()) {
       return res.status(400).json({ message: "Message cannot be empty" });
     }
-
     if (message.length > 4000) {
       return res.status(400).json({ message: "Message too long (max 4000 characters)" });
     }
