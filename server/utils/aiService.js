@@ -7,8 +7,6 @@ const groq = new Groq({
 
 });
 
-
-
 const generateAIResponse = async(messages)=>{
 
 
