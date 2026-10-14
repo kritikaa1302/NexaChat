@@ -5,7 +5,6 @@ Chat history is saved per user in MongoDB.
 
 ---
 ## ✨ Features
-
 - User registration and login with **JWT authentication**
 - Passwords hashed with **bcrypt**
 - Protected API routes via auth middleware
