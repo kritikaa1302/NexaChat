@@ -7,7 +7,7 @@ Chat history is saved per user in MongoDB.
 ## ✨ Features
 - User registration and login with **JWT authentication**
 - Passwords hashed with **bcrypt**
-- Protected API routes via auth middleware
+- Protected API routes via auth middleware and routes
 - AI responses powered by **Groq** (fast LLM inference)
 - Markdown rendering (headings, lists, tables, code blocks) using `react-markdown` + `remark-gfm`
 - Persistent chat history stored in MongoDB
