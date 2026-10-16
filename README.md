@@ -170,6 +170,6 @@ The system prompt instructs the assistant to answer with clear headings, bullet 
 ## 👤 Author
 
 **KRITIKA**
-Computer Science Student
+CSE
 
 ---
