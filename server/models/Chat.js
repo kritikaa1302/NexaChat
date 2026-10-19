@@ -1,5 +1,4 @@
 const mongoose = require("mongoose");
-
 const messageSchema = new mongoose.Schema(
   {
     role: {
@@ -7,7 +6,6 @@ const messageSchema = new mongoose.Schema(
       enum: ["user", "assistant"],
       required: true,
     },
-
     content: {
       type: String,
       required: true,
