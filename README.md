@@ -4,7 +4,7 @@ A full-stack AI chatbot built with the **MERN stack** and **Groq AI**. Users can
 Chat history is saved per user in MongoDB.
 
 ---
-## ✨ Features
+## ✨ Features of this
 - User registration and login with **JWT authentication**
 - Passwords hashed with **bcrypt**
 - Protected API routes via auth middleware and routes
