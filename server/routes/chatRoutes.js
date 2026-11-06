@@ -1,7 +1,5 @@
 const express = require("express");
-
 const router = express.Router();
-
 const authMiddleware = require("../middleware/authMiddleware");
 const{
   sendMessage,
@@ -9,7 +7,6 @@ const{
   clearChat,
   generateImage,
 } = require("../controllers/chatController");
-
 router.get(
   "/",
   authMiddleware,
