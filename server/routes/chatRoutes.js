@@ -12,23 +12,19 @@ router.get(
   authMiddleware,
   getChat
 );
-
 router.post(
   "/",
   authMiddleware,
   sendMessage
 );
-
 router.post(
   "/image",
   authMiddleware,
   generateImage
 );
-
 router.delete(
   "/",
   authMiddleware,
   clearChat
 );
-
 module.exports = router;
