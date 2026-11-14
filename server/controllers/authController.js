@@ -1,7 +1,7 @@
 const User = require("../models/User");
 const bcrypt = require("bcrypt");
 const generateToken = require("../utils/generateToken");
-// to Register the User
+// to Register the User and content 
 const registerUser = async (req,res)=>{
 
     try{
