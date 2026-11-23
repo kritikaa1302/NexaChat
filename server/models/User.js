@@ -1,8 +1,7 @@
 const mongoose = require("mongoose");
 const userSchema = new mongoose.Schema(
 {
-name
-        : {
+name: {
         type:String,
         required: true },
     email: {
@@ -10,11 +9,13 @@ name
         required: true,
         unique: true
     },
+        
     password: {
         type: String,
         required: true
     }
 },
+        
 {
     timestamps: true
 });
