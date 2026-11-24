@@ -1,7 +1,9 @@
 const mongoose = require("mongoose");
 const messageSchema = new mongoose.Schema(
   {
-    role:{
+    role
+      
+      :{
       type: String,
       enum: ["ur", "assistant"],
       required: true,},
@@ -9,6 +11,8 @@ const messageSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
+
+    
     // "text" = normal chat, "image" = generated image (content holds the image URL)
     type: {
       type: String,
